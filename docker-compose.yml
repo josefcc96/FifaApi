@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    command: python -m gunicorn fifa.wsgi --bind 0.0.0.0:8000 
+    environment:
+      TZ: America/Bogota
+      CHOKIDAR_USEPOLLING: "true"
+    volumes: 
+      - . :/code
+    ports:
+      - 8000:8000
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: FIFADB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  pg_data:
