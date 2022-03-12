@@ -2,7 +2,7 @@
 <div id="top"></div>
 
 <div align="center">
-  <h3 align="center">Fifa Api</h3>
+  <h1 align="center">Fifa Api</h1>
   <p align="center">
     Api desarrollada para consolidar la información de todos los equipos que van a ir al próximo mundial.
     <br />
