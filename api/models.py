@@ -65,15 +65,15 @@ class Jugador(models.Model):
         return '%d.%s %s ' % (self.numero, self.nombre, self.apellido)
     
     @property
-    def edad(self):
+    def edad(self)->int:
         return date.today().year - self.fecha_nacimiento.year
 
 class Tecnico(models.Model):
     
-    TECNICO= 'T'
-    ASISTENTE= 'A'
-    MEDICO= 'M'
-    PREPARADOR= 'P'
+    TECNICO = 'Técnico'
+    ASISTENTE = 'Asistente'
+    MEDICO = 'Médico'
+    PREPARADOR = 'Preparador'
     
     ROL_CHOICES = [
         (TECNICO, 'Técnico'),
@@ -90,7 +90,7 @@ class Tecnico(models.Model):
     rol = models.CharField(
         max_length=1,
         choices=ROL_CHOICES,
-        default='A')
+        default=ASISTENTE)
     equipo = models.ForeignKey(
         Equipo, related_name='tecnicos', on_delete=models.CASCADE)
     
@@ -102,5 +102,5 @@ class Tecnico(models.Model):
         return '%s %s (%s)' % (self.nombre, self.apellido, self.rol)
 
     @property
-    def edad(self):
+    def edad(self) -> int:
         return date.today().year - self.fecha_nacimiento.year

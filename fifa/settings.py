@@ -141,11 +141,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     # YOUR SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': []
 }
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Fifa info API',
-    'DESCRIPTION': 'Api for Fifa',
+    'DESCRIPTION': 'API Que expone la informacion recojida por la fifa, en esta se registran datos de equipos, jugadores y cuerpo tecnico de los equipo que asistiran al mundial.',
     'VERSION': '1.0.0',
-    # OTHER SETTINGS
+    'SECURITY': [],
+    'SCHEMA_PATH_PREFIX': '/api',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_AUTHENTICATION': None,
+    'COMPONENT_SPLIT_REQUEST' : True
+    # 'TAGS': ["Equipos", "Jugadores", "Cuerpo Tecnico", "Reporte"],
 }

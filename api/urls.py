@@ -6,11 +6,11 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.urlpatterns import format_suffix_patterns
 
 router = DefaultRouter()
-router.register(r'equipos', EquipoViewSet)
-router.register(r'jugadores', JugadorViewSet)
-router.register(r'tecnicos', TecnicoViewSet)
+router.register(r'equipos', EquipoViewSet, basename='Equipos')
+router.register(r'jugadores', JugadorViewSet, basename='Jugadores')
+router.register(r'tecnicos', TecnicoViewSet, basename='Tecnicos')
 
 urlpatterns = [ 
   re_path(r'^', include(router.urls)),
-  path('report/', report, name='Reporte General')
+  path('report', report, name='Reporte General')
 ]
