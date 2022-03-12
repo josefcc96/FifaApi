@@ -88,7 +88,7 @@ class Tecnico(models.Model):
     fecha_nacimiento = models.DateField(null=True, blank=True)
     nacionalidad=models.CharField(max_length=100)
     rol = models.CharField(
-        max_length=1,
+        max_length=10,
         choices=ROL_CHOICES,
         default=ASISTENTE)
     equipo = models.ForeignKey(

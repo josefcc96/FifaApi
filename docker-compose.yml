@@ -1,17 +1,6 @@
 version: '3.8'
 
 services:
-  api:
-    build: .
-    command: python -m gunicorn fifa.wsgi --bind 0.0.0.0:8000 
-    environment:
-      TZ: America/Bogota
-      CHOKIDAR_USEPOLLING: "true"
-    volumes: 
-      - . :/code
-    ports:
-      - 8000:8000
-
   db:
     image: postgres
     restart: always
@@ -21,5 +10,25 @@ services:
       POSTGRES_PASSWORD: admin
     volumes:
       - pg_data:/var/lib/postgresql/data
+  api:
+    build: .
+    command: python -m gunicorn fifa.wsgi --bind 0.0.0.0:8000 
+    environment:
+      TZ: America/Bogota
+      CHOKIDAR_USEPOLLING: "true"
+      SQL_ENGINE: django.db.backends.postgresql
+      SQL_DATABASE: FIFADB
+      SQL_USER: admin
+      SQL_PASSWORD: admin
+      SQL_HOST: db
+      SQL_PORT: 5432
+    volumes: 
+      - . :/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  
 volumes:
   pg_data:
