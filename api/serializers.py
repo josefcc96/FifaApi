@@ -17,8 +17,8 @@ from drf_spectacular.utils import extend_schema_serializer, OpenApiExample
                         "bandera": "/Banderas/Equipo_1/bandera.png",
                         "escudo": "/Escudos/Equipo_1/escudo.png"
             },
-            request_only=True,  # signal that example only applies to requests
-            response_only=False,  # signal that example only applies to responses
+            request_only=True, 
+            response_only=False,
         ),
     ]
 )
@@ -51,8 +51,8 @@ class EquipoSerializer(serializers.ModelSerializer):
                     "numero": 0,
                     "titular": "true"
             },
-            request_only=False,  # signal that example only applies to requests
-            response_only=True,  # signal that example only applies to responses
+            request_only=False, 
+            response_only=True,
         ),
     ]
 )
@@ -89,8 +89,8 @@ class JugadorEquipoSerializer(serializers.ModelSerializer):
                 "rol": "Tecnico",
 
             },
-            request_only=False,  # signal that example only applies to requests
-            response_only=True,  # signal that example only applies to responses
+            request_only=False, 
+            response_only=True,
         ),
     ]
 )
@@ -120,8 +120,8 @@ class TecnicoEquipoSerializer(serializers.ModelSerializer):
                 "numero": 0,
                 "titular": "true"
             },
-            request_only=True,  # signal that example only applies to requests
-            response_only=False,  # signal that example only applies to responses
+            request_only=True, 
+            response_only=False,
         ),
     ]
 )
@@ -150,8 +150,8 @@ class JugadorSerializer(serializers.ModelSerializer):
                 "nacionalidad": "Colombiano",
                 "rol": "Tecnico",
             },
-            request_only=False,  # signal that example only applies to requests
-            response_only=True,  # signal that example only applies to responses
+            request_only=False, 
+            response_only=True,
         ),
     ]
 )
@@ -201,8 +201,8 @@ class TecnicoSerializer(serializers.ModelSerializer):
                             }
                         ],
             },
-            request_only=True,  # signal that example only applies to requests
-            response_only=False,  # signal that example only applies to responses
+            request_only=True, 
+            response_only=False,
         ),
     ]
 )

@@ -4,12 +4,10 @@ from datetime import date
 from django.db.models import  Avg,F
 
 def banderas_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'Banderas/Equipo_{1}/{2}'.format(instance.nombre, filename)
+    return 'Banderas/Equipo_{0}/{1}'.format(instance.nombre, filename)
 
 def escudo_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'Escudos/Equipo_{1}/{2}'.format(instance.nombre, filename)
+    return 'Escudos/Equipo_{0}/{1}'.format(instance.nombre, filename)
 
 class Equipo(models.Model):
     id=models.AutoField(primary_key=True)
